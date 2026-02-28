@@ -1,0 +1,3 @@
+export const LOCAL_STORAGE_KEYS = {
+    ACCESS_TOKENS: "ACCESS_TOKENS",
+}
