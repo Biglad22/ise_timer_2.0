@@ -6,7 +6,7 @@
 
 :root {
   --primary: 245 99 49;
-  --secondary:245 100 93;
+  --secondary: 245 100 93;
   --tertiary: 0 0 98;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -110,7 +110,12 @@
     @apply text-base md:text-lg;
   }
 
-  p, a, li, input, label {
+  p,
+  a,
+  li,
+  input,
+  label,
+  button {
     @apply text-sm md:text-base;
   }
 
@@ -118,20 +123,24 @@
     @apply text-xs sm:text-sm;
   }
 
-  .high-emphasis-text{
+  button {
+    @apply cursor-pointer;
+  }
+
+  .high-emphasis-text {
     color: rgb(40, 40, 40);
   }
 
-  .medium-emphasis-text{
+  .medium-emphasis-text {
     color: rgb(102, 102, 102);
   }
 
-  .low-emphasis-text{
+  .low-emphasis-text {
     color: rgb(178, 178, 178);
   }
 
-  input{
-    @apply focus:ring-2 focus:ring-offset-1 focus:ring-primary
+  input {
+    @apply focus:ring-2 focus:ring-offset-1 focus:ring-primary;
   }
   * {
     @apply border-border outline-ring/50;
@@ -139,31 +148,32 @@
   body {
     @apply bg-background text-foreground;
   }
-  
-  
-  .spotlight{
+
+  .spotlight {
     mask-image: radial-gradient(ellipse at center, black 50%, transparent 70%);
   }
 
-
-  .hide-scroller::-webkit-scrollbar{
+  .hide-scroller::-webkit-scrollbar {
     display: none;
+  }
+
+  .surface-hover-effect {
+    @apply hover:bg-secondary/10!;
   }
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   width: 4px;
   height: 4px;
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
   @apply bg-primary rounded-sm;
 }
 
-::-webkit-scrollbar-track{
+::-webkit-scrollbar-track {
   @apply bg-transparent;
 }
-
 
 .dark {
   --background: oklch(0.145 0 0);

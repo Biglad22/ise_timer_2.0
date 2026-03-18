@@ -1,4 +1,5 @@
 "use client"
+import AuthPageHeader from "@/components/auth/AuthPageHeader";
 import { Button } from "@/components/ui/button";
 import { Field, FieldDescription, FieldError, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
@@ -10,10 +11,7 @@ export default function page() {
   const {onSubmit, register, formState} = useSignupService()
   return (
     <>
-        <div className="text-center">
-          <h3 className="high-emphasis-text font-semibold">Welcome</h3>
-          <p className="medium-emphasis-text">Please enter your personal information to create an account with us</p>
-        </div>
+        <AuthPageHeader title="Welcome" subtitle="Please enter your personal information to create an account with us" />
         <form onSubmit={onSubmit} className="w-full max-w-lg shadow-sm border-secondary p-6 rounded-md bg-tertiary">
             <FieldGroup className="gap-4" >
               <Field  className="gap-2">

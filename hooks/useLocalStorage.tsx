@@ -10,10 +10,11 @@ function useLocalStorage() {
     
     const get = useCallback(
         <T extends any> (key: string): T | null => {
+            
             if (!isBrowser) return null;
             try {
-                const raw = window.localStorage.getItem(key);
-                if (raw === null) return null;
+                const raw = window.localStorage.getItem(key);            
+                if (!raw) return null;
                 return JSON.parse(raw) as T;
             } catch {
                 return null;
@@ -25,7 +26,7 @@ function useLocalStorage() {
     const set = useCallback((key: string, value: any): void => {
             if (!isBrowser) return;
             try {
-                const toStore = typeof value === 'string' ? value : JSON.stringify(value);
+                const toStore = JSON.stringify(value);
                 window.localStorage.setItem(key, toStore);
             } catch {
                 // ignore write errors

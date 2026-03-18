@@ -1,4 +1,5 @@
 import z from "zod";
+import { EmailSchema } from "./baseSchema";
 
 const passwordSchema = z.string()
   .min(8, "Password must be at least 8 characters")
@@ -13,7 +14,7 @@ export const SignupFormSchema = z.object({
     first_name:z.string().min(1, {message:"First name is required."}),
     last_name:z.string().min(1, {message:"Last name is required."}),
     username:z.string().min(1, {message:"User name is required."}),
-    email: z.email().trim().lowercase().min(1, {message:"First name is required."}),
+    email: EmailSchema.min(1, {message:" is required."}),
     password:passwordSchema,
     confirm_password: z.string()
 }).refine(data => data.password === data.confirm_password, {

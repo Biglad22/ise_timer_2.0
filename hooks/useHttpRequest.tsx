@@ -1,6 +1,6 @@
-import { useState } from "react"
+import { EventHandler, useState } from "react"
 
-type Props<T extends (...args: any[]) => any> = {
+type Props<T extends (...args: any[]) => any | EventHandler<any>> = {
   queryFunc: T;
 }
 
@@ -9,7 +9,7 @@ type QueryState = {
   error?: string;
 }
 
-export default function useHttpRequest<T extends (...args: any[]) => any> ({ queryFunc }: Props<T>) {
+export default function useHttpRequest<T extends (...args: any[]) => any | EventHandler<any>> ({ queryFunc}: Props<T>) {
 
   const [state, setState] = useState<QueryState>({
     status: "idle",
@@ -29,6 +29,7 @@ export default function useHttpRequest<T extends (...args: any[]) => any> ({ que
       throw error
     }
   }
+
 
   return {
     trigger,
